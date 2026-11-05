@@ -30,7 +30,9 @@ async function settle(page) {
 
 const POSTER_CSS = `
   #panel, .maplibregl-ctrl-top-left, .rose, #tourbar, #card, .cartouche { display: none !important; }
-  .maplibregl-ctrl-bottom-right { bottom: 26px; right: 28px; }
+  .maplibregl-ctrl-bottom-right { display: none !important; }
+  .ov .att { width: 100%; font-size: 15px; color: #6b5a44; display: flex; justify-content: space-between; }
+  .ov .att b { color: #7a1f2b; }
   .ov { position: absolute; z-index: 5; left: 40px; right: 40px; font-family: "IBM Plex Sans"; color: #2f2418; }
   .ov.top { top: 40px; background: rgba(246,239,223,.93); border: 1px solid rgba(47,36,24,.55); outline: 1px solid rgba(47,36,24,.3); outline-offset: 4px; padding: 26px 32px 22px; }
   .ov .eb { font-size: 19px; letter-spacing: .14em; text-transform: uppercase; color: #7a1f2b; font-weight: 600; }
@@ -62,12 +64,12 @@ const legend = [["H", "#7a1f2b"], ["V", "#a8741f"], ["M", "#2f4b6e"], ["F", "#56
 await poster("day6_1_atlas", { center: [29.02, 41.1], zoom: 9.55 },
   `<div class="eb">#30DayMapChallenge · Day 6 · Vintage</div><h1>The Names We Left Behind</h1>
    <div class="s">${stats.renamings} places in Istanbul still remember a name they no longer use — kept only as <span style="font-style:normal;font-family:'IBM Plex Mono';font-size:23px">old_name</span> in OpenStreetMap.</div>`,
-  `${legend}`, `.ov.bot { font-size: 18px; gap: 8px 18px; }`);
+  `${legend}<div class="att"><span>© OpenStreetMap contributors (ODbL) · basemap © CARTO</span><b>barisparlatangiller.github.io</b></div>`, `.ov.bot { font-size: 18px; gap: 8px 18px; }`);
 
 await poster("day6_2_galata", { center: [28.9665, 41.0185], zoom: 14.15 },
   `<div class="eb">Galata · Pera · the historic peninsula</div><h1 style="font-size:64px">Under today's names</h1>
    <div class="s">Christea Turris is the Galata Tower, San Paolo the Arap Mosque, the Osmanlı Bankası is SALT Galata, Pera is Beyoğlu.</div>`,
-  `<span>Italic: the old name · below: today's</span><span class="url">barisparlatangiller.github.io</span>`,
+  `<span>Italic: the old name · below: today's</span><span class="url">barisparlatangiller.github.io</span><div class="att"><span>© OpenStreetMap contributors (ODbL) · basemap © CARTO</span></div>`,
   `.ov.top { top: 40px } `);
 
 // ---- index cards: today ← once, typeset like a card catalogue
