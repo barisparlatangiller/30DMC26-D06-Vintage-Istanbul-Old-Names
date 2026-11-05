@@ -107,7 +107,7 @@ TOUR = [
      "text": "On 25 July 2016 the cabinet renamed the Bosphorus Bridge to commemorate the civilians killed opposing the 15 July coup attempt.",
      "src": "https://www.foxnews.com/world/turkey-renames-bosporus-bridge-15th-july-martyrs-bridge.amp"},
     {"today": "Yeşilköy", "title": "Yeşilköy — Ayastefanos, San Stefano",
-     "text": "In 1924 the poet Halid Ziya Uşaklıgil proposed 'Yeşilköy', green village, for the suburb known as Ayastefanos / San Stefano.",
+     "text": "In 1924 the poet Halid Ziya Uşaklıgil gave the suburb known as Ayastefanos / San Stefano the name 'Yeşilköy', green village.",
      "src": "https://ajammc.com/2020/03/07/scars-ottoman-san-stefano/"},
     {"today": "Polonezköy", "title": "Polonezköy — Adampol",
      "text": "Founded in 1842 on the initiative of Prince Adam Czartoryski for Polish émigrés, and named Adampol after him.",

@@ -64,10 +64,10 @@ async function firstFont(glyphs, list) {
 async function init() {
   const [style, fc, stats] = await Promise.all([
     fetch("https://basemaps.cartocdn.com/gl/positron-gl-style/style.json").then(r => r.json()),
-    fetch("data/names.geojson?v=1").then(r => r.json()),
-    fetch("data/stats.json?v=1").then(r => r.json()),
+    fetch("data/names.geojson?v=2").then(r => r.json()),
+    fetch("data/stats.json?v=2").then(r => r.json()),
   ]);
-  fetch("data/wikidata.json?v=1").then(r => r.ok ? r.json() : {}).then(j => { S.wd = j || {}; if (S.sel != null) openCard(S.sel, false); }).catch(() => {});
+  fetch("data/wikidata.json?v=2").then(r => r.ok ? r.json() : {}).then(j => { S.wd = j || {}; if (S.sel != null) openCard(S.sel, false); }).catch(() => {});
   S.feats = fc.features; S.stats = stats; S.tour = stats.tour || [];
   const fontIt = await firstFont(style.glyphs, ["Montserrat Medium Italic", "Open Sans Italic", "Noto Sans Italic"]);
   const fontRg = await firstFont(style.glyphs, ["Montserrat Medium", "Open Sans Regular", "Noto Sans Regular"]) || "Open Sans Regular";
