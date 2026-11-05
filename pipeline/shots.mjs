@@ -11,7 +11,7 @@ async function open(w, h, scale = 1) {
   const page = await browser.newPage({ viewport: { width: w, height: h }, deviceScaleFactor: scale });
   page.on("console", m => m.type() === "error" && console.log("console:", m.text()));
   await page.goto(URL, { waitUntil: "networkidle" });
-  await page.waitForFunction(() => window.S && S.map && S.map.getLayer && S.map.getLayer("labels"), null, { timeout: 60000 });
+  await page.waitForFunction(() => typeof S !== "undefined" && S.map && S.map.getLayer && S.map.getLayer("labels"), null, { timeout: 60000 });
   await page.evaluate(() => document.fonts.ready);
   return page;
 }
