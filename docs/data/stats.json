@@ -1,0 +1,117 @@
+{
+ "source": "OpenStreetMap contributors (ODbL), Overpass export",
+ "exported": "2026-11-05T12:20:48Z",
+ "osm_features": 261,
+ "renamings": 161,
+ "segments_merged": 75,
+ "kinds": {
+  "H": {
+   "label": "Byzantine, Latin & community layers",
+   "n": 19
+  },
+  "V": {
+   "label": "Villages & neighbourhoods",
+   "n": 37
+  },
+  "M": {
+   "label": "Named after people & events",
+   "n": 23
+  },
+  "F": {
+   "label": "New use, new name",
+   "n": 35
+  },
+  "B": {
+   "label": "Sponsors, brands & owners",
+   "n": 13
+  },
+  "S": {
+   "label": "Street renames",
+   "n": 18
+  },
+  "T": {
+   "label": "Shopfronts that changed hands",
+   "n": 16
+  }
+ },
+ "dropped": {
+  "old name = name": 1,
+  "no current name, no feature": 7,
+  "no old_name": 7,
+  "bus stop named after a landmark": 5,
+  "old name copied onto unrelated libraries": 5
+ },
+ "geometry": {
+  "Polygon": 62,
+  "Point": 71,
+  "LineString": 18,
+  "MultiLineString": 9,
+  "MultiPolygon": 1
+ },
+ "with_wikidata": 65,
+ "tour": [
+  {
+   "today": "Galata Kulesi",
+   "title": "Galata Tower — once the Tower of Christ",
+   "text": "The Genoese, settled in Galata since 1267, rebuilt the tower in 1348–49 and called it Christea Turris, the Tower of Christ.",
+   "src": "https://galata-tower.com/history",
+   "i": 7
+  },
+  {
+   "today": "Bodrum Camii",
+   "title": "Bodrum Mosque — the Myrelaion",
+   "text": "Emperor Romanos I Lekapenos built the Myrelaion as his family's burial church (first burial 922). Around 1500 Grand Vizier Mesih Pasha made it a mosque.",
+   "src": "https://www.wikiwand.com/en/articles/Myrelaion",
+   "i": 5
+  },
+  {
+   "today": "Arap Camii",
+   "title": "Arap Mosque — San Paolo e Domenico",
+   "text": "A Dominican church of the Latin community in Galata, enlarged in 1307. The Dominicans left in 1475; the name 'Arap' most likely comes from the Moors resettled here after 1492.",
+   "src": "https://mcid.mcah.columbia.edu/istanbul-documentation-project/arap-camii",
+   "i": 1
+  },
+  {
+   "today": "Beyoğlu",
+   "title": "Beyoğlu — Pera, 'the other side'",
+   "text": "OSM still keeps Pera, the old name of the district across the Golden Horn from the historic peninsula.",
+   "src": null,
+   "i": 3
+  },
+  {
+   "today": "SALT Galata",
+   "title": "SALT Galata — the Imperial Ottoman Bank",
+   "text": "Designed by Alexandre Vallaury as the headquarters of the Imperial Ottoman Bank, which used it from 1892 to 1999. Reopened as SALT Galata in November 2011.",
+   "src": "https://saltonline.org/en/salt-galata",
+   "i": 94
+  },
+  {
+   "today": "Four Seasons Hotel",
+   "title": "Four Seasons Sultanahmet — the Sultanahmet Jail",
+   "text": "Built as a prison in 1918–19, abandoned in 1969, opened as a hotel in 1996.",
+   "src": "https://www.wikiwand.com/en/articles/Sultanahmet_Jail",
+   "i": 88
+  },
+  {
+   "today": "15 Temmuz Şehitler Köprüsü",
+   "title": "15 July Martyrs' Bridge — the Bosphorus Bridge",
+   "text": "On 25 July 2016 the cabinet renamed the Bosphorus Bridge to commemorate the civilians killed opposing the 15 July coup attempt.",
+   "src": "https://www.foxnews.com/world/turkey-renames-bosporus-bridge-15th-july-martyrs-bridge.amp",
+   "i": 56
+  },
+  {
+   "today": "Yeşilköy",
+   "title": "Yeşilköy — Ayastefanos, San Stefano",
+   "text": "In 1924 the poet Halid Ziya Uşaklıgil proposed 'Yeşilköy', green village, for the suburb known as Ayastefanos / San Stefano.",
+   "src": "https://ajammc.com/2020/03/07/scars-ottoman-san-stefano/",
+   "i": 15
+  },
+  {
+   "today": "Polonezköy",
+   "title": "Polonezköy — Adampol",
+   "text": "Founded in 1842 on the initiative of Prince Adam Czartoryski for Polish émigrés, and named Adampol after him.",
+   "src": "https://www.wikiwand.com/en/articles/Adampol",
+   "i": 12
+  }
+ ]
+}

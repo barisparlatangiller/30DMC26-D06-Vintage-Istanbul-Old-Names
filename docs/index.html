@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Names We Left Behind — Istanbul</title>
+<meta name="description" content="#30DayMapChallenge 2026 · Day 6 · Vintage — Istanbul places whose old names survive only in OpenStreetMap's old_name tag.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
+<link href="style.css?v=1" rel="stylesheet">
+</head>
+<body>
+<aside id="panel">
+  <header>
+    <div class="eyebrow">#30DayMapChallenge · Day 6 · Vintage</div>
+    <h1>The Names<br>We Left Behind</h1>
+    <p class="sub">Istanbul's forgotten place names — the ones that live on only as <code>old_name</code> in OpenStreetMap.</p>
+    <div class="ornament">❦</div>
+    <p class="lead" id="lead"></p>
+    <button id="tourBtn" class="tour-btn">Begin the tour <span>→</span></button>
+  </header>
+
+  <section>
+    <h2>Kinds of renaming</h2>
+    <ul id="legend"></ul>
+  </section>
+
+  <section class="gaz">
+    <h2>Gazetteer</h2>
+    <input id="q" type="search" placeholder="Search today's or an old name…" autocomplete="off">
+    <ol id="list"></ol>
+  </section>
+
+  <footer>
+    <p><b>What this is — and isn't.</b> Only places where an OpenStreetMap mapper recorded an <code>old_name</code>. It is a
+      sample of the city's memory, not an inventory: Istanbul has thousands of renamed streets and villages that nobody has tagged yet.
+      Kinds are read from the names and tags; dates and stories appear only where a source is linked.</p>
+    <p id="method"></p>
+    <p>Data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a> (ODbL),
+      facts from <a href="https://www.wikidata.org" target="_blank" rel="noopener">Wikidata</a> (CC0) · Basemap © CARTO ·
+      <a href="https://github.com/barisparlatangiller/30DMC26-D06-Vintage-Istanbul-Old-Names" target="_blank" rel="noopener">code &amp; method</a> ·
+      <a href="https://barisparlatangiller.github.io/" target="_blank" rel="noopener">all maps of the series</a></p>
+    <p class="by">Barış Parlatangiller · built with Claude</p>
+  </footer>
+</aside>
+
+<main id="mapwrap">
+  <div id="map"></div>
+  <div class="paper" aria-hidden="true"></div>
+  <div class="neatline" aria-hidden="true"></div>
+  <div class="cartouche" aria-hidden="true">
+    <div class="c1">İSTANBUL</div>
+    <div class="c2">Konstantiniyye · Constantinople · Byzantion</div>
+  </div>
+  <svg class="rose" viewBox="-50 -50 100 100" aria-hidden="true">
+    <circle r="30" fill="none" stroke="currentColor" stroke-width=".8"/>
+    <circle r="24" fill="none" stroke="currentColor" stroke-width=".4"/>
+    <path d="M0-46 6-6 0 0-6-6Z" fill="currentColor"/><path d="M0 46 6 6 0 0-6 6Z" fill="none" stroke="currentColor" stroke-width=".8"/>
+    <path d="M46 0 6 6 0 0 6-6Z" fill="none" stroke="currentColor" stroke-width=".8"/><path d="M-46 0-6 6 0 0-6-6Z" fill="none" stroke="currentColor" stroke-width=".8"/>
+    <text y="-36" text-anchor="middle" font-size="9" fill="currentColor" font-family="Cormorant Garamond" dy="-12">N</text>
+  </svg>
+  <div id="card" class="card hidden" role="dialog" aria-live="polite"></div>
+  <div id="tourbar" class="tourbar hidden">
+    <button id="tPrev" aria-label="Previous">←</button><span id="tPos"></span><button id="tNext" aria-label="Next">→</button>
+    <button id="tEnd" class="end">End tour</button>
+  </div>
+  <button id="panelToggle" class="ptog" aria-label="Show list">☰</button>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="app.js?v=1"></script>
+</body>
+</html>

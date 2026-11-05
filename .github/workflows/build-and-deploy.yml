@@ -1,0 +1,59 @@
+name: Build gazetteer and deploy map
+
+# OSM old_name export (data/) → classified renamings → Wikidata facts → GitHub Pages.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt && mkdir -p logs
+
+      - name: Old names → renamings (classified, street segments merged)
+        run: |
+          python pipeline/build_data.py 2>&1 | tee logs/01_names.log
+          test ${PIPESTATUS[0]} -eq 0
+
+      - name: Facts from Wikidata
+        continue-on-error: true
+        run: |
+          python pipeline/wikidata.py 2>&1 | tee logs/02_wikidata.log
+          test ${PIPESTATUS[0]} -eq 0
+
+      - name: Summary
+        if: always()
+        run: |
+          for f in logs/*.log; do echo "::notice title=$(basename $f)::$(tail -c 900 $f | tr '\n' ' ')"; done
+          { echo '### Day 6 — The Names We Left Behind'; echo '```'; head -c 3000 logs/01_names.log; echo; cat logs/02_wikidata.log 2>/dev/null; echo '```'; } >> $GITHUB_STEP_SUMMARY
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
