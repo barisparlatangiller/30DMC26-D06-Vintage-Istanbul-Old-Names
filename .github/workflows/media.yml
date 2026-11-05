@@ -1,0 +1,34 @@
+name: Render thumbnail and LinkedIn images
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["pipeline/shots.mjs", ".github/workflows/media.yml"]
+
+permissions:
+  contents: write
+
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - uses: actions/setup-node@v4
+        with: { node-version: "22" }
+      - run: pip install -r requirements.txt && python pipeline/build_data.py > /dev/null && (python pipeline/wikidata.py || true)
+      - run: npm i --no-save playwright@1.48.2 && npx playwright install --with-deps chromium
+      - name: Render
+        run: |
+          python -m http.server -d docs 8000 > /dev/null 2>&1 &
+          sleep 2
+          node pipeline/shots.mjs 2>&1 | tee shots.log
+      - name: Push to media branch
+        run: |
+          mkdir -p /tmp/m && cp media/* /tmp/m/
+          git config user.name Claude && git config user.email noreply@anthropic.com
+          git checkout --orphan media && git rm -rfq . && cp /tmp/m/* . && git add *.jpg *.png
+          git commit -qm "Rendered images ($(date -u +%F))" && git push -f origin media
