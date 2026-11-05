@@ -91,6 +91,7 @@ footer .by { font-family: var(--serif); font-style: italic; font-size: 14px; }
 .tourbar { position: absolute; z-index: 3; left: 50%; transform: translateX(-50%); bottom: 34px; display: flex; align-items: center; gap: 10px;
   background: #fbf6ea; border: 1px solid #b9a37b; padding: 6px 10px; border-radius: 2px; box-shadow: 0 6px 18px -6px rgba(60,40,10,.4); font-family: var(--serif); font-size: 17px; }
 .tourbar.hidden { display: none; }
+.tourbar span { white-space: nowrap; }
 .tourbar button { font: inherit; background: none; border: 1px solid var(--rule); width: 34px; height: 30px; cursor: pointer; color: var(--ink); }
 .tourbar .end { width: auto; padding: 0 10px; font-size: 14px; color: var(--accent); }
 .ptog { display: none; }
@@ -109,7 +110,9 @@ footer .by { font-family: var(--serif); font-style: italic; font-size: 14px; }
   #panel { width: 100%; flex: 0 0 46%; height: 46%; border-right: 0; border-top: 1px solid var(--rule); padding: 16px; }
   h1 { font-size: 32px; }
   #mapwrap { flex: 1; }
-  .card { left: 16px; right: 16px; width: auto; top: 16px; max-height: calc(100% - 90px); }
+  .card { left: 12px; right: 12px; width: auto; top: auto; bottom: 62px; max-height: 52%; padding: 10px 14px; }
+  .card .once { font-size: 24px; }
+  .card .lbl { margin-top: 7px; }
   .rose, .cartouche { display: none; }
   .neatline { inset: 6px; }
   .tourbar { bottom: 14px; }

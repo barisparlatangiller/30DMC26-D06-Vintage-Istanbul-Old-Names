@@ -207,7 +207,7 @@ function openCard(i, fly) {
   S.sel = i;
   S.map?.getLayer("p-sel") && S.map.setFilter("p-sel", ["==", ["get", "i"], i]);
   if (fly && S.map) S.map.flyTo({ center: [p.x, p.y], zoom: zoomFor(p), speed: 0.9, essential: true,
-    offset: window.innerWidth > 760 ? [-190, 0] : [0, 90] });
+    offset: window.innerWidth > 760 ? [-190, 0] : [0, -90] });
   const t = S.tour.find(x => x.i === i);
   const wd = p.wd ? S.wd[p.wd.split(";")[0]] : null;
   const alt = Object.entries(p.oa || {}).filter(([l]) => l !== "tr");
