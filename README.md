@@ -32,10 +32,10 @@ Result: **161 renamings**.
 | Byzantine, Latin and community layers | 19 |
 | Villages and neighbourhoods | 37 |
 | Named after people and events | 23 |
-| New use, new name | 34 |
+| New use, new name | 35 |
 | Sponsors, brands and owners | 13 |
 | Street renames | 18 |
-| Shopfronts that changed hands | 17 (hidden at start) |
+| Shopfronts that changed hands | 16 (hidden at start) |
 
 ## Limits
 

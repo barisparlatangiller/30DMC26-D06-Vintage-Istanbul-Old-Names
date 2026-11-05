@@ -79,7 +79,7 @@ async function init() {
   }));
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-left");
   map.addControl(new maplibregl.ScaleControl({ maxWidth: 110 }), "bottom-right");
-  map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: "© OpenStreetMap contributors · © CARTO" }), "bottom-right");
+  map.addControl(new maplibregl.AttributionControl({ compact: true }), "bottom-right");
 
   const pins = { type: "FeatureCollection", features: S.feats.map(f => ({ type: "Feature", properties: f.properties, geometry: { type: "Point", coordinates: [f.properties.x, f.properties.y] } })) };
   const color = ["match", ["get", "k"], ...ORDER.flatMap(k => [k, KIND[k].c]), "#777"];
@@ -206,7 +206,8 @@ function openCard(i, fly) {
   const p = f.properties, k = KIND[p.k];
   S.sel = i;
   S.map?.getLayer("p-sel") && S.map.setFilter("p-sel", ["==", ["get", "i"], i]);
-  if (fly && S.map) S.map.flyTo({ center: [p.x, p.y], zoom: zoomFor(p), speed: 0.9, essential: true });
+  if (fly && S.map) S.map.flyTo({ center: [p.x, p.y], zoom: zoomFor(p), speed: 0.9, essential: true,
+    offset: window.innerWidth > 760 ? [-190, 0] : [0, 90] });
   const t = S.tour.find(x => x.i === i);
   const wd = p.wd ? S.wd[p.wd.split(";")[0]] : null;
   const alt = Object.entries(p.oa || {}).filter(([l]) => l !== "tr");
